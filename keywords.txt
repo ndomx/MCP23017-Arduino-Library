@@ -1,0 +1,6 @@
+MCP23017	KEYWORD1
+
+config_bank	KEYWORD2
+config_banks	KEYWORD2
+write_port	KEYWORD2
+read_port	KEYWORD2
