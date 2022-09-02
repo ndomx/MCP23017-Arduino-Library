@@ -18,6 +18,9 @@ class MCP23017
 
     private:
     const uint8_t _address;
+
+    void write_reg(const uint8_t reg, uint8_t value);
+    uint8_t read_reg(const uint8_t reg);
 };
 
 #endif // MCP23017_LIB_H_
