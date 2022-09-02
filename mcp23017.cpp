@@ -5,6 +5,9 @@ MCP23017::MCP23017(const uint8_t address) : _address(address)
 {
     Wire.begin();
 
+    _bank_a = 0;
+    _bank_b = 0;
+
     // Disable sequential reading
     write_reg(IOCON, (1 << _SEQOP));
 }
@@ -26,6 +29,32 @@ void MCP23017::config_banks(const uint8_t mode)
 {
     config_bank(BANK_A, mode);
     config_bank(BANK_B, mode);
+}
+
+void MCP23017::write_port(const uint8_t bank, const uint8_t port, bool state)
+{
+    uint8_t& _bank = (bank == BANK_A) ? _bank_a : _bank_b;
+
+    if (state)
+    {
+        _bank |= (1 << port);
+    }
+    else
+    {
+        _bank &= ~(1 << port);
+    }
+
+    const uint8_t reg = (bank == BANK_A) ? GPIOA : GPIOB;
+    write_reg(reg, _bank);
+}
+
+bool MCP23017::read_port(const uint8_t bank, const uint8_t port)
+{
+    uint8_t& _bank = (bank == BANK_A) ? _bank_a : _bank_b;
+    const uint8_t reg = (bank == BANK_A) ? GPIOA : GPIOB;
+    
+    _bank = read_reg(reg);
+    return (_bank >> port) & 0b1;
 }
 
 void MCP23017::write_reg(const uint8_t reg, uint8_t value)
