@@ -1,0 +1,12 @@
+# vs code auto-generated
+.vscode/
+
+# build dir
+build/
+
+# temp objs dir
+objs/
+intermediate/
+
+# main file (should be used with arduino)
+main.cpp
