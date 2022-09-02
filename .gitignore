@@ -8,5 +8,9 @@ build/
 objs/
 intermediate/
 
-# main file (should be used with arduino)
+# Arduino ignored
 main.cpp
+arduino/
+
+# toolchain
+avrgcc/
