@@ -87,6 +87,14 @@ uint8_t MCP23017::read_bank(const uint8_t bank_id)
     return read_bank(bank_id, 0xFF);
 }
 
+void MCP23017::pinMode(const uint8_t gpio_id, const uint8_t mode)
+{
+    const uint8_t bank_id = (gpio_id < 0x8) ? BANK_A : BANK_B;
+    const uint8_t mask = (1 << (gpio_id % 0x8));
+
+    config_bank(bank_id, mode, mask);
+}
+
 void MCP23017::digitalWrite(const uint8_t gpio_id, const uint8_t level)
 {
     const uint8_t bank_id = (gpio_id < 0x8) ? BANK_A : BANK_B;
