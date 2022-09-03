@@ -68,7 +68,7 @@ uint8_t MCP23017::read_bank(const uint8_t bank_id, const uint8_t mask)
     return ports & mask;
 }
 
-uint8_t MCP23017::read_bank(const uint8_t bank_id, const uint8_t mask)
+uint8_t MCP23017::read_bank(const uint8_t bank_id)
 {
     return read_bank(bank_id, 0xFF);
 }
