@@ -4,16 +4,16 @@
 /** Registers */
 #define IOCON (0x0A) // I/O Expander Configuration Register
 
-#define IODIR (0x00) // I/O Direction Register A
-#define IPOL (0x02) // Input Polarity Port Register A
-#define GPINTEN (0x04) // Interrupt-On-Change Pins A
-#define DEFVAL (0x06) // Default Value Register A
-#define INTCON (0x08) // Interrupt-On-Change Control Register A
-#define GPPU (0x0C) // GPIO Pull-Up Resistor Register A
-#define INTF (0x0E) // Interrupt Flag Register A
-#define INTCAP (0x10) // Interrupt Captured Value For Port Register A
-#define GPIO (0x12) // General Purpose I/O Port Register A
-#define OLAT (0x14) // Output Latch Register A
+#define IODIR (0x00) // I/O Direction Register
+#define IPOL (0x02) // Input Polarity Port Register
+#define GPINTEN (0x04) // Interrupt-On-Change Pins
+#define DEFVAL (0x06) // Default Value Register
+#define INTCON (0x08) // Interrupt-On-Change Control Register
+#define GPPU (0x0C) // GPIO Pull-Up Resistor Register
+#define INTF (0x0E) // Interrupt Flag Register
+#define INTCAP (0x10) // Interrupt Captured Value For Port Register
+#define GPIO (0x12) // General Purpose I/O Port Register
+#define OLAT (0x14) // Output Latch Register
 
 /** Bit definitions */
 // IODIR
