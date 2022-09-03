@@ -4,8 +4,7 @@
 #include "Arduino.h"
 #include "Wire.h"
 
-#define BANK_A (0)
-#define BANK_B (1)
+#include "gpio_bank.h"
 
 class MCP23017
 {
@@ -13,17 +12,23 @@ class MCP23017
     MCP23017(const uint8_t address);
     ~MCP23017();
 
-    void config_bank(const uint8_t bank, const uint8_t mode);
+    void config_bank(const uint8_t bank_id, const uint8_t mode, const uint8_t mask);
+    void config_bank(const uint8_t bank_id, const uint8_t mode);
+
+    void config_banks(const uint8_t mode, const uint8_t mask);
     void config_banks(const uint8_t mode);
 
-    void write_port(const uint8_t bank, const uint8_t port, bool state);
-    bool read_port(const uint8_t bank, const uint8_t port);
+    void write_bank(const uint8_t bank_id, const uint8_t level, const uint8_t mask);
+    void write_bank(const uint8_t bank_id, const uint8_t level);
+
+    uint8_t read_bank(const uint8_t bank_id, const uint8_t mask);
+    uint8_t read_bank(const uint8_t bank_id);
 
     private:
     const uint8_t _address;
 
-    uint8_t _bank_a;
-    uint8_t _bank_b;
+    GPIO_Bank _bank_a;
+    GPIO_Bank _bank_b;
 
     void write_reg(const uint8_t reg, uint8_t value);
     uint8_t read_reg(const uint8_t reg);
