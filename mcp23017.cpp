@@ -4,7 +4,7 @@
 MCP23017::MCP23017(const uint8_t address) : _address(address | 0x20), _bank_a(BANK_A), _bank_b(BANK_B)
 {
     Wire.begin();
-    write_reg(IOCON, (1 << _SEQOP));
+    write_reg(MCP23017_IOCON, (1 << MCP23017_SEQOP));
 }
 
 MCP23017::~MCP23017(void)
@@ -52,7 +52,7 @@ void MCP23017::write_bank(const uint8_t bank_id, const uint8_t level, const uint
         bank.ports &= ~mask;
     }
 
-    write_reg(GPIO | bank.reg_mask, bank.ports);
+    write_reg(MCP23017_GPIO | bank.reg_mask, bank.ports);
 }
 
 void MCP23017::write_bank(const uint8_t bank_id, const uint8_t level)
@@ -63,7 +63,7 @@ void MCP23017::write_bank(const uint8_t bank_id, const uint8_t level)
 uint8_t MCP23017::read_bank(const uint8_t bank_id, const uint8_t mask)
 {
     auto& bank = pick_bank(bank_id);
-    uint8_t ports = read_reg(GPIO | bank.reg_mask);
+    uint8_t ports = read_reg(MCP23017_GPIO | bank.reg_mask);
 
     return ports & mask;
 }
@@ -101,7 +101,7 @@ uint8_t MCP23017::read_reg(const uint8_t reg)
 void MCP23017::config_output(GPIO_Bank& bank, const uint8_t mask)
 {
     bank.ddr &= ~mask;
-    write_reg(IODIR | bank.reg_mask, bank.ddr);
+    write_reg(MCP23017_IODIR | bank.reg_mask, bank.ddr);
 }
 
 void MCP23017::config_input_hiz(GPIO_Bank& bank, const uint8_t mask)
@@ -109,8 +109,8 @@ void MCP23017::config_input_hiz(GPIO_Bank& bank, const uint8_t mask)
     bank.ddr |= mask;
     bank.pull_ups &= ~mask;
     
-    write_reg(GPPU | bank.reg_mask, bank.pull_ups);
-    write_reg(IODIR | bank.reg_mask, bank.ddr);
+    write_reg(MCP23017_GPPU | bank.reg_mask, bank.pull_ups);
+    write_reg(MCP23017_IODIR | bank.reg_mask, bank.ddr);
 }
 
 void MCP23017::config_input_pullup(GPIO_Bank& bank, const uint8_t mask)
@@ -118,6 +118,6 @@ void MCP23017::config_input_pullup(GPIO_Bank& bank, const uint8_t mask)
     bank.ddr |= mask;
     bank.pull_ups |= mask;
     
-    write_reg(GPPU | bank.reg_mask, bank.pull_ups);
-    write_reg(IODIR | bank.reg_mask, bank.ddr);
+    write_reg(MCP23017_GPPU | bank.reg_mask, bank.pull_ups);
+    write_reg(MCP23017_IODIR | bank.reg_mask, bank.ddr);
 }
