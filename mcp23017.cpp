@@ -1,13 +1,13 @@
 #include "mcp23017.h"
 #include "mcp23017_constants.h"
 
-MCP23017::MCP23017(const uint8_t address) : _address(address | 0x20), _bank_a(BANK_A), _bank_b(BANK_B)
+void MCP23017::start(void)
 {
     Wire.begin();
     write_reg(MCP23017_IOCON, (1 << MCP23017_SEQOP));
 }
 
-MCP23017::~MCP23017(void)
+void MCP23017::close(void)
 {
     Wire.end();
 }

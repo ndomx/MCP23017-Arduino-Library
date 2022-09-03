@@ -12,8 +12,14 @@
 class MCP23017
 {
     public:
-    MCP23017(const uint8_t address);
-    ~MCP23017();
+    MCP23017(const uint8_t address) : _address(address | 0x20), _bank_a(BANK_A), _bank_b(BANK_B)
+    {
+
+    }
+
+    static void close(void);
+
+    void start(void);
 
     void config_bank(const uint8_t bank_id, const uint8_t mode, const uint8_t mask);
     void config_bank(const uint8_t bank_id, const uint8_t mode);
