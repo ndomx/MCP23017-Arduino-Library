@@ -39,6 +39,11 @@ class MCP23017
     void config_output(GPIO_Bank& bank, const uint8_t mask);
     void config_input_hiz(GPIO_Bank& bank, const uint8_t mask);
     void config_input_pullup(GPIO_Bank& bank, const uint8_t mask);
+
+    inline GPIO_Bank& pick_bank(const uint8_t bank_id)
+    {
+        return (bank_id == BANK_A) ? _bank_a : _bank_b;
+    }
 };
 
 #endif // MCP23017_LIB_H_
