@@ -6,7 +6,7 @@
 struct GPIO_Bank
 {
     public:
-    GPIO_Bank(const uint8_t id) : reg_mask(id << 4)
+    GPIO_Bank(const uint8_t id) : reg_mask(id)
     {
         ports = 0;
         ddr = 0;

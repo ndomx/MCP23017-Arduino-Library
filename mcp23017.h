@@ -6,6 +6,9 @@
 
 #include "gpio_bank.h"
 
+#define BANK_A (0)
+#define BANK_B (1)
+
 class MCP23017
 {
     public:
@@ -32,6 +35,10 @@ class MCP23017
 
     void write_reg(const uint8_t reg, uint8_t value);
     uint8_t read_reg(const uint8_t reg);
+
+    void config_output(GPIO_Bank& bank, const uint8_t mask);
+    void config_input_hiz(GPIO_Bank& bank, const uint8_t mask);
+    void config_input_pullup(GPIO_Bank& bank, const uint8_t mask);
 };
 
 #endif // MCP23017_LIB_H_
