@@ -1,7 +1,7 @@
 #include "mcp23017.h"
 #include "mcp23017_constants.h"
 
-MCP23017::MCP23017(const uint8_t address) : _address(address)
+MCP23017::MCP23017(const uint8_t address) : _address(address | 0x20)
 {
     Wire.begin();
 
