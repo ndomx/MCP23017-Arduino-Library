@@ -2,5 +2,7 @@ MCP23017	KEYWORD1
 
 config_bank	KEYWORD2
 config_banks	KEYWORD2
+
 write_bank	KEYWORD2
+toggle_bank KEYWORD2
 read_bank	KEYWORD2

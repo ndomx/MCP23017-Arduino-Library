@@ -60,6 +60,19 @@ void MCP23017::write_bank(const uint8_t bank_id, const uint8_t level)
     write_bank(bank_id, level, 0xFF);
 }
 
+void MCP23017::toggle_bank(const uint8_t bank_id, const uint8_t mask)
+{
+    auto& bank = pick_bank(bank_id);
+    bank.ports ^= mask;
+
+    write_reg(MCP23017_GPIO | bank.reg_mask, bank.ports);
+}
+
+void MCP23017::toggle_bank(const uint8_t bank_id)
+{
+    toggle_bank(bank_id, 0xFF);
+}
+
 uint8_t MCP23017::read_bank(const uint8_t bank_id, const uint8_t mask)
 {
     auto& bank = pick_bank(bank_id);

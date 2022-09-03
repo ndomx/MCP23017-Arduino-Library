@@ -24,6 +24,9 @@ class MCP23017
     void write_bank(const uint8_t bank_id, const uint8_t level, const uint8_t mask);
     void write_bank(const uint8_t bank_id, const uint8_t level);
 
+    void toggle_bank(const uint8_t bank_id, const uint8_t mask);
+    void toggle_bank(const uint8_t bank_id);
+
     uint8_t read_bank(const uint8_t bank_id, const uint8_t mask);
     uint8_t read_bank(const uint8_t bank_id);
 
