@@ -26,22 +26,22 @@
 #define IOCON_BANK (7) // IOCON bit 7
 
 // GPIO
-#define GPA0 (0) // GPIO port 0, bank A
-#define GPA1 (1) // GPIO port 1, bank A
-#define GPA2 (2) // GPIO port 2, bank A
-#define GPA3 (3) // GPIO port 3, bank A
-#define GPA4 (4) // GPIO port 4, bank A
-#define GPA5 (5) // GPIO port 5, bank A
-#define GPA6 (6) // GPIO port 6, bank A
-#define GPA7 (7) // GPIO port 7, bank A
+#define GPA0 (0x0) // GPIO port 0, bank A
+#define GPA1 (0x1) // GPIO port 1, bank A
+#define GPA2 (0x2) // GPIO port 2, bank A
+#define GPA3 (0x3) // GPIO port 3, bank A
+#define GPA4 (0x4) // GPIO port 4, bank A
+#define GPA5 (0x5) // GPIO port 5, bank A
+#define GPA6 (0x6) // GPIO port 6, bank A
+#define GPA7 (0x7) // GPIO port 7, bank A
 
-#define GPB0 (0) // GPIO port 0, bank B
-#define GPB1 (1) // GPIO port 1, bank B
-#define GPB2 (2) // GPIO port 2, bank B
-#define GPB3 (3) // GPIO port 3, bank B
-#define GPB4 (4) // GPIO port 4, bank B
-#define GPB5 (5) // GPIO port 5, bank B
-#define GPB6 (6) // GPIO port 6, bank B
-#define GPB7 (7) // GPIO port 7, bank B
+#define GPB0 (0x8) // GPIO port 0, bank B
+#define GPB1 (0x9) // GPIO port 1, bank B
+#define GPB2 (0xA) // GPIO port 2, bank B
+#define GPB3 (0xB) // GPIO port 3, bank B
+#define GPB4 (0xC) // GPIO port 4, bank B
+#define GPB5 (0xD) // GPIO port 5, bank B
+#define GPB6 (0xE) // GPIO port 6, bank B
+#define GPB7 (0xF) // GPIO port 7, bank B
 
 #endif // MCP23017_CONSTANTS_H_

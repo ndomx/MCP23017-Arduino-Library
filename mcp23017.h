@@ -37,6 +37,9 @@ class MCP23017
     uint8_t read_bank(const uint8_t bank_id, const uint8_t mask);
     uint8_t read_bank(const uint8_t bank_id);
 
+    void digitalWrite(const uint8_t gpio_id, const uint8_t level);
+    uint8_t digitalRead(const uint8_t gpio_id);
+
     private:
     const uint8_t _address;
 

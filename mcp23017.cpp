@@ -1,14 +1,16 @@
 #include "mcp23017.h"
 
-void MCP23017::start(void)
-{
-    Wire.begin();
-    write_reg(MCP23017_IOCON, (1 << IOCON_SEQOP));
-}
+/** Public functions */
 
 void MCP23017::close(void)
 {
     Wire.end();
+}
+
+void MCP23017::start(void)
+{
+    Wire.begin();
+    write_reg(MCP23017_IOCON, (1 << IOCON_SEQOP));
 }
 
 void MCP23017::config_bank(const uint8_t bank_id, const uint8_t mode, const uint8_t mask)
@@ -84,6 +86,24 @@ uint8_t MCP23017::read_bank(const uint8_t bank_id)
 {
     return read_bank(bank_id, 0xFF);
 }
+
+void MCP23017::digitalWrite(const uint8_t gpio_id, const uint8_t level)
+{
+    const uint8_t bank_id = (gpio_id < 0x8) ? BANK_A : BANK_B;
+    const uint8_t mask = (1 << (gpio_id % 0x8));
+
+    write_bank(bank_id, level, mask);
+}
+
+uint8_t MCP23017::digitalRead(const uint8_t gpio_id)
+{
+    const uint8_t bank_id = (gpio_id < 0x8) ? BANK_A : BANK_B;
+    const uint8_t mask = (1 << (gpio_id % 0x8));
+
+    return read_bank(bank_id, mask);
+}
+
+/** Private functions */
 
 void MCP23017::write_reg(const uint8_t reg, uint8_t value)
 {
