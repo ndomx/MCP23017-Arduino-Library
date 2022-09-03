@@ -91,7 +91,7 @@ uint8_t MCP23017::read_reg(const uint8_t reg)
     // Send restart
     Wire.endTransmission(false);
 
-    Wire.requestFrom(_address, 1, true);
+    Wire.requestFrom((uint8_t)_address, (uint8_t)1, (uint8_t)true);
 
     while (Wire.available() == 0);
 
