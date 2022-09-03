@@ -1,10 +1,9 @@
 #include "mcp23017.h"
-#include "mcp23017_constants.h"
 
 void MCP23017::start(void)
 {
     Wire.begin();
-    write_reg(MCP23017_IOCON, (1 << MCP23017_SEQOP));
+    write_reg(MCP23017_IOCON, (1 << IOCON_SEQOP));
 }
 
 void MCP23017::close(void)
