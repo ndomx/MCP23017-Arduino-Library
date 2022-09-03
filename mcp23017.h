@@ -1,8 +1,8 @@
 #ifndef MCP23017_LIB_H_
 #define MCP23017_LIB_H_
 
-#include "Arduino.h"
-#include "Wire.h"
+#include <Arduino.h>
+#include <Wire.h>
 
 #include "gpio_bank.h"
 

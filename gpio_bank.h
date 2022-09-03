@@ -1,7 +1,7 @@
 #ifndef MCP23017_GPIO_BANK_H_
 #define MCP23017_GPIO_BANK_H_
 
-#include <stdint.h>
+#include <Arduino.h>
 
 struct GPIO_Bank
 {
