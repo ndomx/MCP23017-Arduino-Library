@@ -5,7 +5,7 @@
 #include <Wire.h>
 
 #include "gpio_bank.h"
-#include "mcp23017_constants.h"
+#include "mcp23017_defs.h"
 
 #define BANK_A (0)
 #define BANK_B (1)
