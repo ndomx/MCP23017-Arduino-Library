@@ -11,14 +11,14 @@ MCP23017 mcp(MCP_ADDR);
 
 void setup(void)
 {
-  mcp.start();
-  mcp.pinMode(GPB7, OUTPUT);
+    mcp.start();
+    mcp.pinMode(GPB7, OUTPUT);
 }
 
-void loop()
+void loop(void)
 {
-  mcp.digitalWrite(GPB7, HIGH);
-  delay(250);
-  mcp.digitalWrite(GPB7, LOW);
-  delay(250);
+    mcp.digitalWrite(GPB7, HIGH);
+    delay(250);
+    mcp.digitalWrite(GPB7, LOW);
+    delay(250);
 }

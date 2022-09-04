@@ -18,30 +18,30 @@ MCP23017 mcp(MCP_ADDR);
 
 void setup(void)
 {
-  mcp.start();
+    mcp.start();
 
-  // Config ports GPA7 & GPA5 in the same instruction
-  mcp.config_bank(BANK_A, OUTPUT, GP7 | GP5);
+    // Config ports GPA7 & GPA5 in the same instruction
+    mcp.config_bank(BANK_A, OUTPUT, GP7 | GP5);
 
-  // Config port GPA3 & GPA2 as INPUT_PULLUP
-  mcp.config_bank(BANK_A, INPUT_PULLUP, GP3 | GP2);
+    // Config port GPA3 & GPA2 as INPUT_PULLUP
+    mcp.config_bank(BANK_A, INPUT_PULLUP, GP3 | GP2);
 
-  // Config BANK B as OUTPUT
-  mcp.config_bank(BANK_B, OUTPUT);
+    // Config BANK B as OUTPUT
+    mcp.config_bank(BANK_B, OUTPUT);
 }
 
 void loop(void)
 {
-  // Toggle GPA7
-  mcp.toggle_bank(BANK_A, GP7);
+    // Toggle GPA7
+    mcp.toggle_bank(BANK_A, GP7);
 
-  // Set GPA5 to GPA3 & GPA2
-  byte bank_a = mcp.read_bank(BANK_A, GP3 | GP2);
-  byte gpa5 = (bank_a & GP3) && (bank_a & GP2);
-  mcp.write_bank(BANK_A, gpa5, GP5);
+    // Set GPA5 to GPA3 & GPA2
+    byte bank_a = mcp.read_bank(BANK_A, GP3 | GP2);
+    byte gpa5 = (bank_a & GP3) && (bank_a & GP2);
+    mcp.write_bank(BANK_A, gpa5, GP5);
 
-  // Toggle BANK B
-  mcp.toggle_bank(BANK_B);
+    // Toggle BANK B
+    mcp.toggle_bank(BANK_B);
 
-  delay(100);
+    delay(100);
 }
