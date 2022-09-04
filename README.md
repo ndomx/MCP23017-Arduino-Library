@@ -1,6 +1,6 @@
 # MCP23017-Arduino-Library
 
-![release badge](https://img.shields.io/github/v/release/ndomx/MCP23017-Arduino-Library?style=flat-square)
+![release badge](https://img.shields.io/github/v/release/ndomx/MCP23017-Arduino-Library)
 ![license badge](https://img.shields.io/github/license/ndomx/MCP23017-Arduino-Library?style=flat-square)
 
 
