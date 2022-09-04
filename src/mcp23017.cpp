@@ -74,17 +74,18 @@ void MCP23017::config_bank(const uint8_t bank_id, const uint8_t mode)
  * 
  * Configures all GPIO banks with the specified I/O function. The I/O function
  * is compatible with the Arduino syntax. The mask parameter allows the user
- * to configure only the pins that match the 1s in the mask. As an example,
- * the user wishes to only set the 7th port of both banks as OUTPUT, they
- * should call config_banks(OUTPUT, (1 << 7))
+ * to configure only the pins that match the 1s in the mask.
+ * 
+ * @see config_bank
+ * @note mask bits from 0 to 7 will target bank A and bits from 8 to 15 will target bank B
  *
  * @param mode Must be OUTPUT, INPUT or INPUT_PULLUP
  * @param mask A mask representing which ports are to be configured
  */
-void MCP23017::config_banks(const uint8_t mode, const uint8_t mask)
+void MCP23017::config_banks(const uint8_t mode, const uint16_t mask)
 {
-    config_bank(BANK_A, mode, mask);
-    config_bank(BANK_B, mode, mask);
+    config_bank(BANK_A, mode, (mask >> 0) & 0xFF);
+    config_bank(BANK_B, mode, (mask >> 8) & 0xFF);
 }
 
 /**
@@ -97,7 +98,7 @@ void MCP23017::config_banks(const uint8_t mode, const uint8_t mask)
  */
 void MCP23017::config_banks(const uint8_t mode)
 {
-    config_banks(mode, 0xFF);
+    config_banks(mode, 0xFFFF);
 }
 
 /**

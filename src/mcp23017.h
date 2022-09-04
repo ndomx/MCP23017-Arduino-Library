@@ -25,7 +25,7 @@ class MCP23017
     void config_bank(const uint8_t bank_id, const uint8_t mode, const uint8_t mask);
     void config_bank(const uint8_t bank_id, const uint8_t mode);
 
-    void config_banks(const uint8_t mode, const uint8_t mask);
+    void config_banks(const uint8_t mode, const uint16_t mask);
     void config_banks(const uint8_t mode);
 
     void write_bank(const uint8_t bank_id, const uint8_t level, const uint8_t mask);
