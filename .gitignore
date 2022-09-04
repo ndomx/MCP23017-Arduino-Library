@@ -8,10 +8,5 @@ build/
 objs/
 intermediate/
 
-# Arduino ignored
-main.cpp
-arduino/
-Wire/
-
 # toolchain
 avrgcc/
