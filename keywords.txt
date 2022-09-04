@@ -7,7 +7,7 @@ config_bank	KEYWORD2
 config_banks	KEYWORD2
 
 write_bank	KEYWORD2
-toggle_bank KEYWORD2
+toggle_bank	KEYWORD2
 read_bank	KEYWORD2
 
 BANK_A	LITERAL1
